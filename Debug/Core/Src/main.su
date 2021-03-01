@@ -4,6 +4,6 @@ main.c:174:13:MX_ADC1_Init	24	static
 main.c:224:13:MX_USART2_UART_Init	8	static
 main.c:257:13:MX_GPIO_Init	48	static
 main.c:293:6:ADCPollingMethodInit	4	static
-main.c:306:6:ADCPollingMethodUpdate	16	static
-main.c:316:6:ADCShowValue	16	static
+main.c:304:6:ADCPollingMethodUpdate	16	static
+main.c:314:6:ADCShowValue	16	static
 main.c:351:6:Error_Handler	4	static,ignoring_inline_asm

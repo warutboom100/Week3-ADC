@@ -293,12 +293,10 @@ static void MX_GPIO_Init(void)
 void ADCPollingMethodInit() {
 	//config all ADC Channel
 
-	//PA0
 	ADCChannel[0].Config.Channel = ADC_CHANNEL_0;
 	ADCChannel[0].Config.Rank = 1;
 	ADCChannel[0].Config.SamplingTime = ADC_SAMPLETIME_3CYCLES;
 
-	//TEMP
 	ADCChannel[1].Config.Channel = ADC_CHANNEL_TEMPSENSOR;
 	ADCChannel[1].Config.Rank = 1;
 	ADCChannel[1].Config.SamplingTime = ADC_SAMPLETIME_3CYCLES;
@@ -317,7 +315,8 @@ void ADCShowValue(){
 	//DATA IS 12 BIT = 4096 Vref = 3.3V
 	switch(ADCMode){
 		case 0:
-			ADCOutputConverted = (3.3/4096.0)*ADCChannel[0].data;
+			//PA0 unit is mV
+			ADCOutputConverted = ((3.3/4096.0)*ADCChannel[0].data)*1000.0;
 			if(HAL_GetTick() - ButtonTimeStamp >= 120){
 				ButtonTimeStamp = HAL_GetTick();
 				SwitchButton[0] = HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_10);
@@ -327,7 +326,8 @@ void ADCShowValue(){
 			}
 			break;
 		case 1:
-			ADCOutputConverted = 1000;
+			//Temperature Current
+			ADCOutputConverted = (((ADCChannel[1].data*(3.3/4096.0))-0.76)/25.0)+25.0;
 			if(HAL_GetTick() - ButtonTimeStamp >= 120){
 				ButtonTimeStamp = HAL_GetTick();
 				SwitchButton[0] = HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_10);
