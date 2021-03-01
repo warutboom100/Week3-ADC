@@ -1725,7 +1725,7 @@ void ADCShowValue(){
  800113c:	e04f      	b.n	80011de <ADCShowValue+0x12e>
 		case 1:
 			//Temperature Current
-			ADCOutputConverted = (((ADCChannel[1].data*(3.3/4096.0))-0.76)/25.0)+25.0;
+			ADCOutputConverted = (((ADCChannel[1].data*(3.3/4096.0))-0.77)/25.0)+25.0;
  800113e:	4b31      	ldr	r3, [pc, #196]	; (8001204 <ADCShowValue+0x154>)
  8001140:	8c9b      	ldrh	r3, [r3, #36]	; 0x24
  8001142:	4618      	mov	r0, r3
@@ -1817,8 +1817,8 @@ void ADCShowValue(){
  80011ee:	bd98      	pop	{r3, r4, r7, pc}
  80011f0:	66666666 	.word	0x66666666
  80011f4:	3f4a6666 	.word	0x3f4a6666
- 80011f8:	851eb852 	.word	0x851eb852
- 80011fc:	3fe851eb 	.word	0x3fe851eb
+ 80011f8:	0a3d70a4 	.word	0x0a3d70a4
+ 80011fc:	3fe8a3d7 	.word	0x3fe8a3d7
  8001200:	20000050 	.word	0x20000050
  8001204:	20000028 	.word	0x20000028
  8001208:	408f4000 	.word	0x408f4000

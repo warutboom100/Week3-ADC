@@ -327,7 +327,7 @@ void ADCShowValue(){
 			break;
 		case 1:
 			//Temperature Current
-			ADCOutputConverted = (((ADCChannel[1].data*(3.3/4096.0))-0.76)/25.0)+25.0;
+			ADCOutputConverted = (((ADCChannel[1].data*(3.3/4096.0))-0.77)/25.0)+25.0;
 			if(HAL_GetTick() - ButtonTimeStamp >= 120){
 				ButtonTimeStamp = HAL_GetTick();
 				SwitchButton[0] = HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_10);
